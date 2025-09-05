@@ -1,0 +1,255 @@
+/* =========================
+   Design Tokens (modo padrão)
+   ========================= */
+:root{
+  --bg: #0c1020;                 /* fundo geral escuro elegante */
+  --surface: #131937;            /* cartões/caixas */
+  --text: #e9edf8;               /* texto principal */
+  --muted: #b9c2da;              /* texto secundário */
+  --primary: #4c7dff;            /* botões/links */
+  --primary-contrast: #0b1026;   /* texto sobre primary */
+  --link: #86a8ff;               /* links */
+  --border: rgba(255,255,255,.15);
+  --shadow: 0 10px 24px rgba(0,0,0,.35);
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+}
+
+/* =========================
+   Reset leve / base
+   ========================= */
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: radial-gradient(1200px 800px at 20% 0%, #1a2147 0%, var(--bg) 45%) fixed;
+  color: var(--text);
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 16px; /* será ajustado pelo JS de acessibilidade */
+}
+
+a{ color: var(--link); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+img{ max-width: 100%; height: auto; display: block; }
+
+/* Foco bem visível (acessibilidade) */
+:focus{
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible){ outline: none; }
+
+/* =========================
+   Header / Navegação
+   ========================= */
+header{
+  background: transparent;
+}
+.nav-img{
+  width: clamp(140px, 20vw, 220px);
+  height: auto;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+.nav .nav-link{
+  color: var(--text);
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+.nav .nav-link:hover{ color: var(--link); }
+
+/* =========================
+   Botão + Menu de Acessibilidade
+   ========================= */
+.menu-acessibilidade{
+  position: relative;
+}
+#botao-acessibilidade{
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: .6rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, filter .2s ease;
+}
+#botao-acessibilidade:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+.rotacao-botao:active{ transform: scale(.98) }
+
+.opcoes-acessibilidade{
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: .5rem;
+  display: grid;
+  gap: .5rem;
+  grid-auto-flow: column;
+  box-shadow: var(--shadow);
+  z-index: 40;
+}
+.opcoes-acessibilidade button{
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: .45rem .7rem;
+  border-radius: .75rem;
+  font-weight: 700;
+}
+.opcoes-acessibilidade button:focus{ outline-color: #ffe08a; }
+
+/* Classe para esconder/mostrar a lista com JS */
+.apresenta-lista{ display: none !important; }
+
+/* =========================
+   Seção Início / Hero
+   ========================= */
+.inicio-fundo{
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)) , 
+              linear-gradient(135deg, rgba(114,137,218,.12), rgba(76,125,255,.08));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: var(--shadow);
+  gap: 1.5rem;
+}
+.esquerda-conteudo h1{
+  text-shadow: 0 8px 24px rgba(0,0,0,.45);
+}
+.botao-inicio{
+  background: var(--primary);
+  border: none;
+  border-radius: 999px;
+  padding: .85rem 1.25rem;
+  font-weight: 700;
+}
+.img-inicio{
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   Seções de conteúdo
+   ========================= */
+.secao-tropicalia,
+.secao-Wicked{
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: clamp(1rem, 3vw, 2rem);
+  box-shadow: var(--shadow);
+}
+
+/* =========================
+   Galeria
+   ========================= */
+.fundo-galeria{
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.fundo-galeria img{
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   Formulário
+   ========================= */
+.formulario{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  color: var(--text);
+}
+.formulario label{ font-weight: 600; color: var(--muted); }
+
+.form-control{
+  background: rgba(255,255,255,.07);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.form-control::placeholder{ color: #cfd6eea6; }
+.form-control:focus{
+  border-color: #ffd166;
+  box-shadow: 0 0 0 4px rgba(255,209,102,.25);
+}
+
+/* =========================
+   Footer
+   ========================= */
+footer{
+  color: var(--muted);
+}
+footer i{
+  font-size: 1.25rem;
+  margin: 0 .35rem;
+}
+
+/* =========================
+   High Contrast Mode
+   Ative adicionando `contraste-alto` no <body>
+   ========================= */
+body.contraste-alto{
+  --bg: #000000;
+  --surface: #0b0b0b;
+  --text: #ffffff;
+  --muted: #e8e8e8;
+  --primary: #ffd400;            /* amarelo bem visível */
+  --primary-contrast: #1a1a1a;
+  --link: #00e5ff;               /* ciano bem visível */
+  --border: rgba(255,255,255,.6);
+  background: #000 !important;
+}
+
+body.contraste-alto a{ text-decoration: underline; }
+body.contraste-alto .opcoes-acessibilidade,
+body.contraste-alto .formulario,
+body.contraste-alto .fundo-galeria,
+body.contraste-alto .inicio-fundo,
+body.contraste-alto .secao-tropicalia,
+body.contraste-alto .secao-Wicked{
+  border-color: var(--border);
+}
+
+body.contraste-alto img{
+  filter: brightness(.8) contrast(1.15);
+}
+
+body.contraste-alto #botao-acessibilidade,
+body.contraste-alto .opcoes-acessibilidade button,
+body.contraste-alto .botao-inicio{
+  color: #000;
+}
+
+/* Foco ainda mais marcado no modo contraste */
+body.contraste-alto :focus{
+  outline: 3px solid #00e5ff;
+  outline-offset: 2px;
+}
+
+/* =========================
+   Preferências de movimento do usuário
+   ========================= */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* =========================
+   Responsividade rápida
+   ========================= */
+@media (max-width: 992px){
+  .inicio-fundo{ flex-direction: column; text-align: center; }
+  .opcoes-acessibilidade{ grid-auto-flow: row; right: 0; }
+}
+
+@media (max-width: 576px){
+  .nav .nav-link{ padding: .25rem .5rem; }
+  #botao-acessibilidade{ padding: .5
+  }
+}
